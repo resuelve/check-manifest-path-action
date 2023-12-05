@@ -1,0 +1,5 @@
+---
+name: "Check manifest_path value in Kubernetes deployment manifest annotations"
+runs:
+  using: "docker"
+  image: "Dockerfile"
