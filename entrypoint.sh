@@ -12,6 +12,12 @@ for file in $(find . -iname "*.yml" | grep deployment); do
       acc=$((acc + 1))
     fi
 
+    file=$(echo "$file" | sed 's/\.\///')
+
+    if [ "$manifest_path" != "$file" ]; then
+      echo "manifest_path: [$manifest_path] doesn't match with [$file]"
+      acc=$((acc + 1))
+    fi
   else
     echo "$file doesn't have a manifest_path configured"
   fi
