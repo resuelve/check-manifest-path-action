@@ -3,7 +3,7 @@
 # used to count all the errors
 acc=0
 
-for file in $(find . -iname "*.yml" | grep deployment); do
+for file in $(find . -iname "*yaml" -o -iname "*.yml" | grep deployment); do
   # we use xargs to trim result value, otherwise it will be ' "value"'
   manifest_path=$(grep "manifest_path" "$file" | cut -f2 -d ":" | xargs)
   if [ "$manifest_path" != "" ]; then
